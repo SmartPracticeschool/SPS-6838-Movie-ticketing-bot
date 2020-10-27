@@ -1,0 +1,791 @@
+{
+  "intents": [
+    {
+      "intent": "Enquiry",
+      "examples": [
+        {
+          "text": "Are Tickets Available?"
+        },
+        {
+          "text": "What is the price for Tickets of specific category?"
+        },
+        {
+          "text": "Which Type of Tickets are avilable?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Greetings",
+      "examples": [
+        {
+          "text": "Good afternoon"
+        },
+        {
+          "text": "Good evening"
+        },
+        {
+          "text": "Good morning"
+        },
+        {
+          "text": "Hello"
+        },
+        {
+          "text": "Hey"
+        },
+        {
+          "text": "Hi"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "Orders",
+      "examples": [
+        {
+          "text": "Book my seats"
+        },
+        {
+          "text": "Book my show"
+        },
+        {
+          "text": "Give me tickets"
+        },
+        {
+          "text": "Show me tickets"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "Enquiry",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "List of Movies",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Offers",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Options",
+          "synonyms": [
+            "Types of Tickets"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Ticket Price",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Time Slots",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Timings",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "Greetings",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Good afternoon",
+          "synonyms": [
+            "gd afternoon",
+            "gd noon",
+            "noon"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Good evening",
+          "synonyms": [
+            "evening",
+            "gd eve",
+            "gd evng"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Good morning",
+          "synonyms": [
+            "gd morning",
+            "gd mrng",
+            "gm",
+            "morning"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "ListOfMovies",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "ChakdeIndia",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Dangal",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Uri",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-number",
+      "values": [],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "Ticket_Price",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "100",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "300",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "500",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "Ticket_Types",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Gold",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Platinum",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Silver",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "Timing",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "1.00 pm",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "11.00 am",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "9.00 am",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "Timings",
+      "values": [],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Anything else",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "I didn't understand. You can try rephrasing."
+              },
+              {
+                "text": "Can you reword your statement? I'm not understanding."
+              },
+              {
+                "text": "I didn't get your meaning."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Anything else",
+      "previous_sibling": "node_4_1602998176332",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Enter Number of  Tickets"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_6_1602998736716",
+      "event_name": "focus",
+      "dialog_node": "handler_10_1602998736721",
+      "previous_sibling": "handler_1_1602998736721"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_6_1602998736716",
+      "context": {
+        "s": "@sys-number"
+      },
+      "conditions": "@sys-number",
+      "event_name": "input",
+      "dialog_node": "handler_1_1602998736721"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_6_1603519376600",
+      "context": {
+        "ListOfMovies": "@ListOfMovies"
+      },
+      "conditions": "@ListOfMovies",
+      "event_name": "input",
+      "dialog_node": "handler_1_1603519376609"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "List of Movies:  Uri Dangal ChakDeIndia"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "slot_6_1603519376600",
+      "event_name": "focus",
+      "dialog_node": "handler_2_1603519376609",
+      "previous_sibling": "handler_1_1603519376609"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Enter Timing  9.00am   11.00am   1.00pm"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_10_1603523125589",
+      "event_name": "focus",
+      "dialog_node": "handler_2_1603523125597",
+      "previous_sibling": "handler_8_1603523125597"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_4_1602999843176",
+      "context": {
+        "Ticket_Types": "@Ticket_Types"
+      },
+      "conditions": "@Ticket_Types",
+      "event_name": "input",
+      "dialog_node": "handler_4_1602999843184"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Enter Type of Ticket  Gold Silver Platinum , Ticket Price are Gold-500Rs Silver-200Rs Platinum-200Rs",
+            ""
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_4_1602999843176",
+      "event_name": "focus",
+      "dialog_node": "handler_5_1602999843184",
+      "previous_sibling": "handler_4_1602999843184"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_10_1603523125589",
+      "context": {
+        "Timing": "@Timing"
+      },
+      "conditions": "@Timing",
+      "event_name": "input",
+      "dialog_node": "handler_8_1603523125597"
+    },
+    {
+      "type": "standard",
+      "title": "Deleting the context variables",
+      "output": {
+        "deleted": "<?context.remove('Ticket_Types')?><?context.remove('s')?><?context.remove('ListOfMovies')?><?context.remove('Timing')?>",
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_4_1602998176332",
+      "conditions": "true",
+      "dialog_node": "node_10_1603000116073"
+    },
+    {
+      "type": "standard",
+      "title": "Greetings Node",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "#Greetings || @Greetings",
+      "dialog_node": "node_1_1602973400039",
+      "previous_sibling": "Welcome"
+    },
+    {
+      "type": "standard",
+      "title": "Enquiry",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "@Enquiry",
+      "dialog_node": "node_1_1602977414301",
+      "previous_sibling": "node_1_1602973400039"
+    },
+    {
+      "type": "frame",
+      "title": "Order ",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [
+              {
+                "text": "Your $s $Ticket_Types Tickets are booked for movie $ListOfMovies at $Timing"
+              },
+              {
+                "text": ""
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "next_step": {
+        "behavior": "skip_user_input"
+      },
+      "conditions": "#Orders",
+      "dialog_node": "node_4_1602998176332",
+      "previous_sibling": "node_1_1602977414301"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "title": "",
+            "options": [
+              {
+                "label": "Uri",
+                "value": {
+                  "input": {
+                    "text": ""
+                  }
+                }
+              },
+              {
+                "label": "ChakDeIndia",
+                "value": {
+                  "input": {
+                    "text": ""
+                  }
+                }
+              },
+              {
+                "label": "Dangal",
+                "value": {
+                  "input": {
+                    "text": ""
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_1_1602977414301",
+      "conditions": "@Enquiry:(List of Movies)",
+      "dialog_node": "response_10_1603004926414",
+      "previous_sibling": "response_1_1603003993383"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "title": "Ticket",
+            "options": [
+              {
+                "label": "Gold ",
+                "value": {
+                  "input": {
+                    "text": "High"
+                  }
+                }
+              },
+              {
+                "label": "Silver",
+                "value": {
+                  "input": {
+                    "text": "Medium"
+                  }
+                }
+              },
+              {
+                "label": "Others",
+                "value": {
+                  "input": {
+                    "text": "Low"
+                  }
+                }
+              }
+            ],
+            "description": "Types",
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_1_1602977414301",
+      "conditions": "@Enquiry:Options",
+      "dialog_node": "response_1_1602977512064"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "title": "",
+            "options": [
+              {
+                "label": "Gold-500",
+                "value": {
+                  "input": {
+                    "text": "500"
+                  }
+                }
+              },
+              {
+                "label": "Silver-300",
+                "value": {
+                  "input": {
+                    "text": "300"
+                  }
+                }
+              },
+              {
+                "label": "Platinum-100",
+                "value": {
+                  "input": {
+                    "text": "100"
+                  }
+                }
+              }
+            ],
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_1_1602977414301",
+      "conditions": "@Enquiry:(Ticket Price)",
+      "dialog_node": "response_1_1603003993383",
+      "previous_sibling": "response_9_1602978242122"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "evening"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1602973400039",
+      "conditions": "@Greetings:(Good evening)",
+      "dialog_node": "response_2_1602975357862",
+      "previous_sibling": "response_8_1602975246887"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Good afternoon"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1602973400039",
+      "conditions": "@Greetings:(Good afternoon)",
+      "dialog_node": "response_2_1602975372013",
+      "previous_sibling": "response_2_1602975357862"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "title": "Timings",
+            "options": [
+              {
+                "label": "9.00am",
+                "value": {
+                  "input": {
+                    "text": ""
+                  }
+                }
+              },
+              {
+                "label": "11.ooam",
+                "value": {
+                  "input": {
+                    "text": ""
+                  }
+                }
+              },
+              {
+                "label": "1.oopm",
+                "value": {
+                  "input": {
+                    "text": ""
+                  }
+                }
+              }
+            ],
+            "description": "Time",
+            "response_type": "option"
+          }
+        ]
+      },
+      "parent": "node_1_1602977414301",
+      "conditions": "@Enquiry:(Time Slots)",
+      "dialog_node": "response_5_1602978024635",
+      "previous_sibling": "response_1_1602977512064"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hey Hello Have a nice day"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1602973400039",
+      "conditions": "anything_else",
+      "dialog_node": "response_5_1602978306845",
+      "previous_sibling": "response_2_1602975372013"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Good morning"
+              },
+              {
+                "text": "Good evening"
+              },
+              {
+                "text": "Good morning"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1602973400039",
+      "conditions": "@Greetings:(Good morning)",
+      "dialog_node": "response_8_1602975246887"
+    },
+    {
+      "type": "response_condition",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "10%Discount on 3 tickets"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1602977414301",
+      "conditions": "@Enquiry:Offers",
+      "dialog_node": "response_9_1602978242122",
+      "previous_sibling": "response_5_1602978024635"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_4_1602998176332",
+      "variable": "$Timing",
+      "dialog_node": "slot_10_1603523125589",
+      "previous_sibling": "slot_4_1602999843176"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_4_1602998176332",
+      "variable": "$Ticket_Types",
+      "dialog_node": "slot_4_1602999843176",
+      "previous_sibling": "slot_6_1602998736716"
+    },
+    {
+      "type": "slot",
+      "parent": "node_4_1602998176332",
+      "variable": "$s",
+      "dialog_node": "slot_6_1602998736716",
+      "previous_sibling": "slot_6_1603519376600"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_4_1602998176332",
+      "variable": "$ListOfMovies",
+      "dialog_node": "slot_6_1603519376600",
+      "previous_sibling": "node_10_1603000116073"
+    },
+    {
+      "type": "standard",
+      "title": "Welcome",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Hello. How can I help you?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "welcome",
+      "dialog_node": "Welcome"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "off_topic": {
+      "enabled": true
+    },
+    "disambiguation": {
+      "prompt": "Did you mean:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "None of the above"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Did you mean:"
+    },
+    "spelling_auto_correct": true
+  },
+  "learning_opt_out": false,
+  "name": "Movie Ticketing Bot",
+  "language": "en",
+  "description": ""
+}
