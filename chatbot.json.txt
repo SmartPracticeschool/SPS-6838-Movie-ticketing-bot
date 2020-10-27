@@ -1,0 +1,23 @@
+{
+  "output": {
+    "generic": [
+      {
+        "values": [],
+        "response_type": "text",
+        "selection_policy": "sequential"
+      },
+      {
+        "values": [
+          {
+            "text": "Your $s $Ticket_Types Tickets are booked for movie $ListOfMovies at $Timing"
+          },
+          {
+            "text": ""
+          }
+        ],
+        "response_type": "text",
+        "selection_policy": "sequential"
+      }
+    ]
+  }
+}

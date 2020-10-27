@@ -1,0 +1,22 @@
+Enquiry,Timings
+Enquiry,Time Slots
+Enquiry,Options,Types of Tickets
+Enquiry,Offers
+Enquiry,Ticket Price
+Enquiry,List of Movies
+Greetings,Good morning,gm,morning,gd morning,gd mrng
+Greetings,Good evening,gd eve,evening,gd evng
+Greetings,Good afternoon,gd afternoon,noon,gd noon
+ListOfMovies,ChakdeIndia
+ListOfMovies,Uri
+ListOfMovies,Dangal
+Ticket_Price,500
+Ticket_Price,300
+Ticket_Price,100
+Ticket_Types,Platinum
+Ticket_Types,Gold
+Ticket_Types,Silver
+Timing,11.00 am
+Timing,9.00 am
+Timing,1.00 pm
+Timings
